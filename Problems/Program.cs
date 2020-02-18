@@ -9,11 +9,12 @@ namespace ProjectEuler100.Problems
         {
             var sw = Stopwatch.StartNew();
 
-            var answer = new Problem002().Solve(4000000);
+            var answer = new Problem003().Solve(600851475143);
 
             sw.Stop();
 
-            Console.WriteLine($"anser = {answer}; time - {sw.Elapsed}");
+            Console.WriteLine($"anser = {answer}; time = {sw.Elapsed}");
+
         }
     }
 }

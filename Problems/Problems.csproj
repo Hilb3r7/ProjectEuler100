@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectEuler100.Utils\ProjectEuler100.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
