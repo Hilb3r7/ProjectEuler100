@@ -9,7 +9,7 @@ namespace ProjectEuler100.Problems
     {
         public long Solve(long num)
         {
-            return LargestPrimeFactor(num, new ProjectEuler100.Utils.EulerTools().PrimeSieve(10000)); // picked 10K figuring it would be big enough
+            return LargestPrimeFactor(num, new Utils.EulerTools().AllPrimesLessThan(10000)); // picked 10K figuring it would be big enough
         }
 
         /* Simple algorithm that takes a list of primes and starting with smallest factors it out of the number

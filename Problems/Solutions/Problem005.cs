@@ -15,7 +15,7 @@
         private long SmallestNumber(int upper)
         {
             long product = 1;
-            var primes = new Utils.EulerTools().PrimeSieve(upper); // we dont need this many primes, I'm just lazy
+            var primes = new Utils.EulerTools().AllPrimesLessThan(upper);
 
             foreach (var prime in primes)
             {
