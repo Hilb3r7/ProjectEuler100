@@ -5,7 +5,7 @@ namespace ProjectEuler100.Problems
 {
     // What is the largest prime factor of the number 600851475143 ?
     // solution time = 00:00:00.0085086
-    class Problem003
+    public class Problem003
     {
         public long Solve(long num)
         {

@@ -2,7 +2,7 @@
 {
     // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
     // solution time = 00:00:00.0003029
-    class Problem006
+    public class Problem006
     {
         public int Solve(int upper)
         {

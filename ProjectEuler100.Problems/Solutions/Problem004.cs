@@ -6,7 +6,7 @@ namespace ProjectEuler100.Problems
 {
     // Find the largest palindrome made from the product of two 3-digit numbers.
     // solution time = 00:00:00.0006378
-    class Problem004
+    public class Problem004
     {
         public int Solve(int numDigits)
         {

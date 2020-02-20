@@ -2,7 +2,7 @@
 
 namespace ProjectEuler100.Problems
 {
-    class Problem002
+    public class Problem002
     {
         // By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
         // find the sum of the even-valued terms.

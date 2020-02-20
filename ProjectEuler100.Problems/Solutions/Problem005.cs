@@ -2,7 +2,7 @@
 {
     // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
     // solution time = 00:00:00.0104755
-    class Problem005
+    public class Problem005
     {
         /* Via the Fundamental Theorem of Arithmetic we just need to know the highest power of each prime
          * factor smaller than the upper bound
