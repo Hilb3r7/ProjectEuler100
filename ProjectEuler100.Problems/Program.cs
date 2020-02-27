@@ -10,7 +10,7 @@ namespace ProjectEuler100.Problems
         {
             var sw = Stopwatch.StartNew();
 
-            var answer = new Problem013().Solve(10);
+            var answer = new Problem014().Solve(1000000);
 
             sw.Stop();
 
