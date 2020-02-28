@@ -18,6 +18,14 @@ namespace ProjectEuler100.Utils
             return PrimeSieve(n);
         }
 
+        public long NChooseK(int n, int k)
+        {
+            if (k == 0) return 1;
+            if (k > n / 2) return NChooseK(n, n - k);
+
+            return n * NChooseK(n - 1, k - 1) / k;
+        }
+
         private List<int> PrimeSieve(int size)
         {
             var primeList = new List<int>();
