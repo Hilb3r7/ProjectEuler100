@@ -26,6 +26,7 @@ namespace ProjectEuler100.Utils
             return n * NChooseK(n - 1, k - 1) / k;
         }
 
+        // sigma(p^a) = (p^(a+1) - 1) / (p-1) and the function is multiplicative
         public int SumOfProperDivisors(int num)
         {
             //TODO: If number is big enough, get prime list and use GetPrimeFactorizatoin();
