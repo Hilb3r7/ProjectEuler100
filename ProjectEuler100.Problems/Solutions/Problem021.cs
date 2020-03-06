@@ -16,12 +16,13 @@ namespace ProjectEuler100.Problems
         private List<int> GetAmicableNumbers(int bound)
         {
             var amicables = new List<int>();
-            var primes = new Utils.EulerTools().AllPrimesLessThan(bound);
+            var tools = new Utils.EulerTools();
+            var primes = tools.AllPrimesLessThan(bound);
 
             for (int n = 2; n < bound; n++)
-            {        
-                int dofn = SumOfDivisors(GetPrimeFactorization(n, primes)) - n; // proper divisors of n 
-                if (dofn > n && SumOfDivisors(GetPrimeFactorization(dofn, primes)) - dofn == n)
+            {
+                int dofn = tools.SumOfProperDivisors(n, primes);
+                if (dofn > n && tools.SumOfProperDivisors(dofn, primes) == n)
                 {
                     amicables.Add(n);
                     if (dofn < bound) amicables.Add(dofn);
@@ -29,46 +30,6 @@ namespace ProjectEuler100.Problems
             }
 
             return amicables;
-        }
-
-        // sigma(p^a) = (p^(a+1) - 1) / (p-1) and the function is multiplicative
-        private int SumOfDivisors(Dictionary<int, int> factorization)
-        {
-            int sum = 1;
-
-            foreach (var prime in factorization.Keys)
-            {
-                sum *= (int)(Math.Pow(prime, factorization[prime] + 1) - 1) / (prime - 1);
-            }
-
-            return sum;
-        }
-
-        private Dictionary<int, int> GetPrimeFactorization(int num, List<int> primes)
-        {
-            var factorizaton = new Dictionary<int, int>();
-
-            if (primes.BinarySearch(num) >= 0) factorizaton.Add(num, 1);
-            else
-            {
-                int index = 0;
-                while (num > 1 && primes[index] * primes[index] <= num)
-                {
-                    int power = 0;
-                    while (num % primes[index] == 0)
-                    {
-                        num /= primes[index];
-                        power++;
-                    }
-
-                    if (power > 0) factorizaton.Add(primes[index], power);
-                    index++;
-                }
-
-                if (num != 1) factorizaton.Add(num, 1);
-            }
-
-            return factorizaton;
         }
     }
 }
