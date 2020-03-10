@@ -9,7 +9,7 @@ namespace ProjectEuler100.Problems
     {
         public int Solve(int amount)
         {
-            return GetNumWaysIterative(200, new int[] { 1, 2, 5, 10, 20, 50, 100, 200 });
+            return GetNumWaysIterative(amount, new int[] { 1, 2, 5, 10, 20, 50, 100, 200 });
         }
 
         private int GetNumWaysIterative(int amount, int[] coins)
