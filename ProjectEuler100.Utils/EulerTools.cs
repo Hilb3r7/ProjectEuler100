@@ -109,6 +109,50 @@ namespace ProjectEuler100.Utils
             return factorizaton;
         }
 
+        // Deterministic Miller/Rabin, need to optimize for bases based on number
+        public bool IsPrime(long n)
+        {
+            if ((n < 2) || (n % 2 == 0)) return (n == 2);
+            if (n == 13 || n == 23 || n == 1662803) return true;
+
+            long s = n - 1;
+            while (s % 2 == 0) s >>= 1;
+
+            long[] bases = { 2, 13, 23, 1662803 };
+
+            foreach (var b in bases)
+            {
+                long a = b;
+                long temp = s;
+                long mod = 1;
+                mod = ModPow(a, temp, n);
+
+                while (temp != n - 1 && mod != 1 && mod != n - 1)
+                {
+                    mod = (mod * mod) % n;
+                    temp *= 2;
+                }
+
+                if (mod != n - 1 && temp % 2 == 0) return false;
+            }
+            return true;
+        }
+
+        private long ModPow(long b, long exponent, long modulus)
+        {
+            if (modulus == 1) return 0;
+            long result = 1;
+            b %= modulus;
+            while (exponent > 0)
+            {
+                if (exponent % 2 == 1) result = (result * b) % modulus;
+                exponent >>= 1;
+                b = (b * b) % modulus;
+            }
+
+            return result;
+        }
+
 
         private List<int> PrimeSieve(int size)
         {
