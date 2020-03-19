@@ -11,7 +11,7 @@ namespace ProjectEuler100.Problems
         {
             var abc = GetABC(sum);
 
-            return abc[0] * abc[1] * abc[3];
+            return abc[0] * abc[1] * abc[2];
         }
 
         /* from famous formula, a = m^2 - n^2, b = 2mn, c = m^2 + n^2
