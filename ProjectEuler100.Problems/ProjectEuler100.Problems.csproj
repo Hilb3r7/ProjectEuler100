@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Problem11.txt" />
+    <Content Include="Resources\Problem11.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Resources\Problem13.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Problem18.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Problem22.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

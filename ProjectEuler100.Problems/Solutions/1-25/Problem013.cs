@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Numerics;
 
 namespace ProjectEuler100.Problems
@@ -27,8 +28,9 @@ namespace ProjectEuler100.Problems
 
         private string[] ParseInput()
         {
-            return Properties.Resources.Problem13
-                 .Split(new[] { "\n" }, StringSplitOptions.None);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"Resources\Problem13.txt");
+            return File.ReadAllText(path).Split(new[] { "\n" }, StringSplitOptions.None);
         }
+
     }
 }

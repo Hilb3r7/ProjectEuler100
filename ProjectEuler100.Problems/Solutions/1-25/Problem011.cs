@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace ProjectEuler100.Problems
@@ -18,9 +19,12 @@ namespace ProjectEuler100.Problems
 
         private List<int> ParseInput()
         {
-            return Properties.Resources.Problem11
-                 .Split(new char[0], StringSplitOptions.RemoveEmptyEntries)
-                 .Select(int.Parse).ToList();
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"Resources\Problem11.txt");
+
+            return File.ReadAllText(path)
+                        .Split(new char[0], StringSplitOptions.RemoveEmptyEntries)
+                        .Select(int.Parse)
+                        .ToList(); 
         }
 
 

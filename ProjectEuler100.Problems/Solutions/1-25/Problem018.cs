@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace ProjectEuler100.Problems
@@ -37,7 +38,8 @@ namespace ProjectEuler100.Problems
         {
             var pyramid = new List<List<int>>();
 
-            var input =  Properties.Resources.Problem18.Split("\n");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"Resources\Problem18.txt");
+            var input = File.ReadAllText(path).Split("\n");
 
             foreach (var line in input)
             {
