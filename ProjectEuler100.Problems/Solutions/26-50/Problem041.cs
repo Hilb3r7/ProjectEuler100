@@ -5,42 +5,40 @@ using System.Text;
 namespace ProjectEuler100.Problems
 {
     // What is the largest n-digit pandigital prime that exists?
-    // Solution time = 00:00:00.1950406
+    // Solution time = 00:00:00.0145561
     public class Problem041
     {
         // My first approach generated all primes less than 987654322 and
         // starting at largest checked for first pandigital, this took 20 seconds.
-        // This approach generates all n digit pandigitals and checks if they are prime.
+        // This approach generates all 7 and 4 digit pandigitals (as only those can
+        // potentially be prime and checks if they are prime.
         public int Solve()
         {
             return GetLargestPandigitalPrime();
         }
 
-        // This generates every N digit permutation at each step, not just potential
-        // primes. But the number is small enough it's not worth bothering optimizing further
-        public int GetLargestPandigitalPrime()
+        // Generates every 7 and 4 digit permutation, but the space is so small
+        // it's not worth optimizing to generate only potential primes
+        private int GetLargestPandigitalPrime()
         {
-            int largestPrime = 0;
+            int[] sevenDigit = { 1, 2, 3, 4, 5, 6, 7 };
+            int[] fourDigit = { 1, 2, 3, 4 };
+            var perms = new List<int>();
+            int largestPrime;
 
-            for (int i = 9; i > 1; i--) // set array length, this is num digits
-            {
-                int[] arr = new int[i];
-                for (int j = 0; j < arr.Length; j++) // populate array, 1 to N
-                {
-                    arr[j] = j + 1;
-                }
+            // check 7 digit permutations
+            GetAllNDigitPermutations(7, sevenDigit, perms);
+            largestPrime = GetLargestPrime(perms);
+            if (largestPrime != 0) return largestPrime;
 
-                var perms = new List<int>();
-                GetAllNDigitPermutations(arr.Length, arr, perms);
-                largestPrime = GetLargestPrime(perms);
+            // none found, so check four digit
+            perms.Clear();
+            GetAllNDigitPermutations(4, fourDigit, perms);
 
-                if (largestPrime != 0) return largestPrime;
-            }
-
-            return 0;
+            return GetLargestPrime(perms);
         }
 
-        // Returns largest prime from a list, or 0 if none found
+        // Returns largest prime from a list of integers, or 0 if none found
         private int GetLargestPrime(List<int> perms)
         {
             var tools = new Utils.EulerTools();
